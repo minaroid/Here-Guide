@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+
+        <item
+            android:id="@+id/nav_tab_home"
+            android:icon="@drawable/ic_home_black_36dp"
+            android:title="@string/tab_home"></item>
+        <item
+            android:id="@+id/nav_tab_fav"
+            android:icon="@drawable/ic_favorite_black_36dp"
+            android:title="@string/tab_fav"></item>
+        <item
+            android:id="@+id/nav_tab_sett"
+            android:icon="@drawable/ic_settings_black_36dp"
+            android:title="@string/tab_sett"></item>
+
+    </group>
+    <group>
+
+        <item
+            android:id="@+id/nav_rate"
+            android:title="@string/rate_us"
+            android:icon="@drawable/ic_star_rate_black_18dp"
+            ></item>
+        <item
+            android:id="@+id/nav_share"
+            android:title="@string/share_app"
+            android:icon="@drawable/ic_share_black_18dp"></item>
+        <item
+            android:id="@+id/nav_report"
+            android:title="@string/report_problem"
+            android:icon="@drawable/ic_report_problem_black_18dp"></item>
+        <item
+            android:id="@+id/nav_about"
+            android:title="@string/about"
+            android:icon="@drawable/ic_info_black_18dp"></item>
+
+    </group>
+</menu>

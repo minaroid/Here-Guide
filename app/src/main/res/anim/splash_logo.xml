@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<alpha-->
+    <!--android:repeatCount="infinite"-->
+    <!--android:fromAlpha="0"-->
+    <!--android:toAlpha="1"-->
+    <!--android:duration="3000"/>-->
+
+
+    <!--<alpha-->
+    <!--android:repeatCount="infinite"-->
+    <!--android:startOffset="3000"-->
+    <!--android:fromAlpha="1"-->
+    <!--android:toAlpha="0"-->
+    <!--android:duration="3000"/>-->
+    <alpha
+    android:fromAlpha="0.0"
+    android:toAlpha="1.0"
+    android:duration="2000"
+    android:repeatCount="infinite"
+    android:repeatMode="reverse"
+    />
+
+    <!--<scale-->
+        <!--android:duration="2000"-->
+        <!--android:fromXDelta="50%"-->
+        <!--android:fromXScale="0.0"-->
+        <!--android:fromYDelta="50%"-->
+        <!--android:fromYScale="0.0"-->
+        <!--android:toXScale="1.0"-->
+        <!--android:toYScale="1.0" />-->
+    <!--<translate-->
+        <!--android:fromXDelta="-200"-->
+        <!--android:fromYDelta="-200"-->
+        <!--android:duration="1000" />-->
+    <!--<translate-->
+        <!--android:startOffset="1000"-->
+        <!--android:duration="700"-->
+        <!--android:fillAfter="true"-->
+        <!--android:toXDelta="50%p"-->
+        <!--android:toYDelta="0%p" />-->
+
+    <!--<alpha-->
+    <!--android:fromAlpha="1"-->
+    <!--android:toAlpha="0"-->
+    <!--android:duration="4000"/>-->
+
+    <!--<translate-->
+    <!--android:fromXDelta="-200"-->
+    <!--android:fromYDelta="-200"-->
+    <!--android:toXDelta="20%p"-->
+    <!--android:toYDelta="20%p"-->
+    <!--android:duration="700" />-->
+    <!--<translate-->
+    <!--android:startOffset="700"-->
+    <!--android:toXDelta="0%p"-->
+    <!--android:toYDelta="-50%p"-->
+    <!--android:duration="1000"-->
+    <!--android:fillAfter="true"-->
+    <!--/>-->
+</set>

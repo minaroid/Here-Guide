@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorRed">#F44336</color>
+    <color name="bottomBarBackground">#E3F2FD</color>
+    <color name="bottomBarItem">#FFEB3B</color>
+    <color name="homeCardBackground">#FFFDE7</color>
+    <color name="drawerNaviBackground">#558B2F</color>
+    <color name="FrameBackground">#DCEDC8</color>
+</resources>

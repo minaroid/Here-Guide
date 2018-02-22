@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="me.relex:circleindicator-1.2.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/circleindicator-1.2.2.aar/05ffe54bbd0b430a197f41fa8148cf6a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/circleindicator-1.2.2.aar/05ffe54bbd0b430a197f41fa8148cf6a/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.relex/circleindicator/1.2.2/739ce17f5368373ddbce9d5ec0fd3aa82eecf4b/circleindicator-1.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.george888.mina.hereguide.ui.homeActivity.HomeActivity">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/t"/>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/t"
+        android:fitsSystemWindows="false"
+        tools:openDrawer="start">
+
+        <include layout="@layout/activity_home" />
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/bottomBarBackground"
+            android:fitsSystemWindows="false"
+            app:headerLayout="@layout/navigation_header"
+            app:menu="@menu/menu_drawer_navigation">
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.george888.mina.hereguide">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".HereApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_places_api_key" />
+
+        <activity
+            android:name=".ui.homeActivity.HomeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.resultsActivity.ResultsActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".ui.homeActivity.HomeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.splashActivity.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.placeActivity.placeActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ui.resultsActivity.ResultsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <receiver
+            android:name=".broadcast.MyBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:authorities="com.minageorge888.hereguide"
+            android:name=".data.sql.FavContentProvider"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

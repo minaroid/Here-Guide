@@ -1,0 +1,10 @@
+package com.george888.mina.hereguide.ui.homeActivity;
+
+/**
+ * Created by minageorge on 2/7/18.
+ */
+
+public class HomePresenter {
+
+
+}
