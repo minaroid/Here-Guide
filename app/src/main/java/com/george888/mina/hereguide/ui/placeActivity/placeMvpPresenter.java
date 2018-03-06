@@ -7,4 +7,7 @@ import com.george888.mina.hereguide.ui.base.MvpPresenter;
  */
 
 public interface placeMvpPresenter <V extends placeMvpView> extends MvpPresenter<V> {
+
+
+
 }

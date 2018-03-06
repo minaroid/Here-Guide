@@ -83,7 +83,8 @@ public class ResultsRecyclerAdapter extends RecyclerView.Adapter<ResultsRecycler
     @Override
     public void onClick(View view) {
         int pos = (int) view.getTag();
-        resultsMvpView.openPlaceActivity(mArrayList.get(pos).getId(),mArrayList.get(pos).getName());
+        resultsMvpView.openPlaceActivity(mArrayList.get(pos).getId(),mArrayList.get(pos).getName(),
+                mArrayList.get(pos).getRate(),mArrayList.get(pos).getDistance(),mArrayList.get(pos).getPhoto_reference());
     }
 
 

@@ -146,12 +146,15 @@ public class ResultsActivity extends BaseActivity implements ResultsMvpView ,
     }
 
     @Override
-    public void openPlaceActivity(String id,String name) {
+    public void openPlaceActivity(String id,String name,String rate,double dis,String photoReference) {
         if(app.isConnected())
         {
             Intent i = new Intent(this,placeActivity.class);
             i.putExtra("id",id);
             i.putExtra("name",name);
+            i.putExtra("rate",rate);
+            i.putExtra("dis",dis);
+            i.putExtra("ref", photoReference);
           startActivity(i);
         }else{
             Toast.makeText(this,R.string.msg_offline,Toast.LENGTH_SHORT).show();

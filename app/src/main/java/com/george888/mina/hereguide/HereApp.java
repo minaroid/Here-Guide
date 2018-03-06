@@ -1,6 +1,7 @@
 package com.george888.mina.hereguide;
 
 import android.app.Application;
+import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -17,6 +18,8 @@ public class HereApp extends Application {
     private boolean isConnected = false;
     private int columns;
     private static String TAG = HereApp.class.getSimpleName();
+    private ContentResolver contentResolver;
+    private boolean NewFavoritesAdded = false;
 
     @Override
     public void onCreate() {
@@ -24,6 +27,7 @@ public class HereApp extends Application {
         utils = new CommonUtils();
         testConnection();
         setColumns(utils.calculateNoOfColumns(getApplicationContext()));
+        contentResolver = getContentResolver();
     }
 
     public int getColumns() {
@@ -48,5 +52,16 @@ public class HereApp extends Application {
 
     }
 
+    public ContentResolver getResolver() {
 
+        return contentResolver;
+    }
+
+    public boolean isNewFavoritesAdded() {
+        return NewFavoritesAdded;
+    }
+
+    public void setNewFavoritesAdded(boolean newFavoritesAdded) {
+        NewFavoritesAdded = newFavoritesAdded;
+    }
 }

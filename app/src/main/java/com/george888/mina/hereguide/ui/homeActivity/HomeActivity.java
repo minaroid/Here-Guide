@@ -149,11 +149,19 @@ public class HomeActivity extends BaseActivity implements HomeMvpView,
             case 0:
                 tag = fragments[index];
                 selectedFragment = fragmentManager.findFragmentByTag(tag);
-                if (selectedFragment == null) {
-                    selectedFragment = new FavoritesFragment();
-                    transaction.addToBackStack(tag);
+                if (app.isNewFavoritesAdded()) {
+                    transaction.replace(R.id.container, selectedFragment, tag)
+                            .detach(selectedFragment).attach(selectedFragment)
+                            .commit();
+                    app.setNewFavoritesAdded(false);
+                } else {
+
+                    if (selectedFragment == null) {
+                        selectedFragment = new FavoritesFragment();
+                        transaction.addToBackStack(tag);
+                    }
+                    transaction.replace(R.id.container, selectedFragment, tag).commit();
                 }
-                transaction.replace(R.id.container, selectedFragment, tag).commit();
                 break;
 
             case 1:

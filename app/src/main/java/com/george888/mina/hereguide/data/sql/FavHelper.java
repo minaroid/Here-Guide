@@ -10,23 +10,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class FavHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "favList.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public FavHelper(Context context) {
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         final String SQL_CREATE_TABLE = "CREATE TABLE " +
-                FavContract.FavListEntry.TABLE_NAME + " (" +
-                FavContract.FavListEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                FavContract.FavListEntry.COL_PLACE_NAME + " TEXT NOT NULL," +
-                FavContract.FavListEntry.COL_PLACE_PHOTO + " TEXT NOT NULL," +
-                FavContract.FavListEntry.COL_PLACE_ID + " TEXT NOT NULL," +
-                FavContract.FavListEntry.COL_PLACE_RATE + " TEXT NOT NULL," +
-
-                " );";
+                FavContract.FavListEntry.TABLE_NAME + " ( " +
+                FavContract.FavListEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                FavContract.FavListEntry.COL_PLACE_NAME + " TEXT NOT NULL, " +
+                FavContract.FavListEntry.COL_PLACE_PHOTO + " TEXT NOT NULL, " +
+                FavContract.FavListEntry.COL_PLACE_ID + " TEXT NOT NULL, " +
+                FavContract.FavListEntry.COL_PLACE_RATE + " TEXT NOT NULL " +
+                ");";
         sqLiteDatabase.execSQL(SQL_CREATE_TABLE);
     }
 
@@ -34,5 +34,6 @@ public class FavHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + FavContract.FavListEntry.TABLE_NAME);
         onCreate(sqLiteDatabase);
+
     }
 }

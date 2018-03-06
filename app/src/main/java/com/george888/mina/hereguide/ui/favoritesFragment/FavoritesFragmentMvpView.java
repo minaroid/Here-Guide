@@ -8,5 +8,5 @@ import com.george888.mina.hereguide.ui.base.MvpView;
 
 public interface FavoritesFragmentMvpView extends MvpView {
 
-
+   void restartLoader();
 }

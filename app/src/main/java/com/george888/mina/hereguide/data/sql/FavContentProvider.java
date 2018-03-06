@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 
 /**
@@ -44,7 +45,7 @@ public class FavContentProvider extends ContentProvider {
                 break;
             case FAVORITES_ID:
                 String id = uri.getPathSegments().get(1);
-                String mSelection = "_id=?";
+                String mSelection = FavContract.FavListEntry.COL_PLACE_ID+"=?";
                 String mSelectionArgs[] = new String[]{id};
 
                 mCursor = database.query(FavContract.FavListEntry.TABLE_NAME
@@ -89,7 +90,7 @@ public class FavContentProvider extends ContentProvider {
                 break;
             case FAVORITES_ID:
                 String id = uri.getPathSegments().get(1);
-                String mSelection = "_id=?";
+                String mSelection =  FavContract.FavListEntry.COL_PLACE_ID+"=?";
                 String mSelectionArgs[] = new String[]{id};
                 deleted = database.delete(FavContract.FavListEntry.TABLE_NAME, mSelection, mSelectionArgs);
                 break;
@@ -130,7 +131,7 @@ public class FavContentProvider extends ContentProvider {
 
         UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         matcher.addURI(FavContract.PROVIDER_AUTH, FavContract.PATH_FAV, FAVORITES);
-        matcher.addURI(FavContract.PROVIDER_AUTH, FavContract.PATH_FAV + "/#", FAVORITES_ID);
+        matcher.addURI(FavContract.PROVIDER_AUTH, FavContract.PATH_FAV + "/*", FAVORITES_ID);
 
         return matcher;
     }
