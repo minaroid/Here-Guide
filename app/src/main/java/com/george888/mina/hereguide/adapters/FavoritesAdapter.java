@@ -46,7 +46,6 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
                     + myCursor.getString(myCursor.getColumnIndexOrThrow(FavContract.FavListEntry.COL_PLACE_PHOTO))
                     + "&key=" + mContext.getResources().getString(R.string.google_places_service_api_key) + "";
             try {
-
                 Glide.with(mContext).load(photoUrl).into(holder.placeImage);
             } catch (Exception e) {
                 e.printStackTrace();
