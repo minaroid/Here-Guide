@@ -46,6 +46,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
                     + myCursor.getString(myCursor.getColumnIndexOrThrow(FavContract.FavListEntry.COL_PLACE_PHOTO))
                     + "&key=" + mContext.getResources().getString(R.string.google_places_service_api_key) + "";
             try {
+
                 Glide.with(mContext).load(photoUrl).into(holder.placeImage);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -71,23 +72,23 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
         notifyDataSetChanged();
     }
 
-public class VH extends RecyclerView.ViewHolder {
-    @BindView(R.id.im_place)
-    CircleImageView placeImage;
-    @BindView(R.id.text_place_title)
-    TextView placeTitle;
-    @BindView(R.id.rate_place)
-    RatingBar placeRate;
-    @BindView(R.id.text_place_dis)
-    TextView placeDistance;
-    View v;
+    public class VH extends RecyclerView.ViewHolder {
+        @BindView(R.id.im_place)
+        CircleImageView placeImage;
+        @BindView(R.id.text_place_title)
+        TextView placeTitle;
+        @BindView(R.id.rate_place)
+        RatingBar placeRate;
+        @BindView(R.id.text_place_dis)
+        TextView placeDistance;
+        View v;
 
-    public VH(View itemView) {
-        super(itemView);
-        ButterKnife.bind(this, itemView);
-        this.v = itemView;
+        public VH(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            this.v = itemView;
 
+        }
     }
-}
 
 }
