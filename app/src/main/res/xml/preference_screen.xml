@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/FrameBackground"
+    >
 
 
     <android.support.v7.preference.SwitchPreferenceCompat
         android:defaultValue="false"
         android:key="@string/save_photo_key"
-        android:title="@string/pref_photo_btn"
-        android:summary="@string/pref_phto_discr"/>
+        android:summary="@string/pref_phto_discr"
+        android:title="@string/pref_photo_btn" />
 
     <android.support.v14.preference.MultiSelectListPreference
         android:dialogTitle="@string/MultiSelectList_dialog_title"
+        android:entries="@array/places_titles"
+        android:entryValues="@array/places_types"
         android:key="@string/list_key"
         android:summary="@string/MultiSelectList_summary"
-        android:title="@string/MultiSelectList_title"
-        android:entries="@array/places_titles"
-        android:entryValues="@array/places_types" />
-
+        android:title="@string/MultiSelectList_title" />
+    <ListPreference
+        android:entries="@array/dist_titles"
+        android:entryValues="@array/dist_values"
+        android:key="@string/pref_dis_key"
+        android:summary="KM"
+        android:title="@string/pref_dis_title"
+        android:defaultValue="km"/>
 </PreferenceScreen>

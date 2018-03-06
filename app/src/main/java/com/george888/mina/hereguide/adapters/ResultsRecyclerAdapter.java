@@ -1,6 +1,7 @@
 package com.george888.mina.hereguide.adapters;
 
 import android.content.Context;
+import android.location.Location;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.george888.mina.hereguide.HereApp;
 import com.george888.mina.hereguide.R;
 import com.george888.mina.hereguide.pojo.ResultsPlace;
 import com.george888.mina.hereguide.ui.resultsActivity.ResultsMvpView;
@@ -34,11 +36,22 @@ public class ResultsRecyclerAdapter extends RecyclerView.Adapter<ResultsRecycler
     private Context mContext;
     private ResultsMvpView resultsMvpView = null;
     private static String TAG = ResultsRecyclerAdapter.class.getSimpleName();
+    private HereApp app = null;
+    private String disType;
 
     public ResultsRecyclerAdapter(Context context, GridLayoutManager gridLayoutManager) {
         this.gridLayoutManager = gridLayoutManager;
         this.mContext = context;
         this.resultsMvpView = (ResultsMvpView) context;
+        app = ((HereApp) context.getApplicationContext());
+        app.DistanceType();
+        String arr[] = context.getResources().getStringArray(R.array.dist_titles);
+        if (app.getDistanceType().equals("km")) {
+            disType = arr[0];
+        } else {
+            disType = arr[1];
+        }
+
     }
 
     @Override
@@ -61,7 +74,7 @@ public class ResultsRecyclerAdapter extends RecyclerView.Adapter<ResultsRecycler
         }
         holder.placeTitle.setText(p.getName());
         holder.placeRate.setRating(Float.parseFloat(p.getRate()));
-        holder.placeDistance.setText("5 Km");
+        holder.placeDistance.setText(p.getDistance() + " "+disType);
         if (p.getOpen() == "true") {
             holder.badge.setBackground(mContext.getDrawable(R.drawable.online_badge));
         }
@@ -83,8 +96,8 @@ public class ResultsRecyclerAdapter extends RecyclerView.Adapter<ResultsRecycler
     @Override
     public void onClick(View view) {
         int pos = (int) view.getTag();
-        resultsMvpView.openPlaceActivity(mArrayList.get(pos).getId(),mArrayList.get(pos).getName(),
-                mArrayList.get(pos).getRate(),mArrayList.get(pos).getDistance(),mArrayList.get(pos).getPhoto_reference());
+        resultsMvpView.openPlaceActivity(mArrayList.get(pos).getId(), mArrayList.get(pos).getName(),
+                mArrayList.get(pos).getRate(), mArrayList.get(pos).getDistance(), mArrayList.get(pos).getPhoto_reference());
     }
 
 
@@ -108,5 +121,6 @@ public class ResultsRecyclerAdapter extends RecyclerView.Adapter<ResultsRecycler
 
         }
     }
+
 
 }

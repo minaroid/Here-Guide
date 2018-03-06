@@ -15,11 +15,14 @@ import java.util.List;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
+import android.location.Location;
 import android.os.Bundle;
 
+import com.george888.mina.hereguide.HereApp;
 import com.george888.mina.hereguide.pojo.ResultsPlace;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class TypeResultsLoader extends AsyncTaskLoader<List<ResultsPlace>> {
@@ -30,10 +33,12 @@ public class TypeResultsLoader extends AsyncTaskLoader<List<ResultsPlace>> {
     private List<ResultsPlace> dataList = new ArrayList<>();
     private static String TAG = TypeResultsLoader.class.getSimpleName();
     private HttpURLConnection httpURLConnection = null;
+    private HereApp app = null;
 
     public TypeResultsLoader(Context context, Bundle bundle) {
         super(context);
         this.mBundle = bundle;
+        app = ((HereApp) context.getApplicationContext());
     }
 
     @Override
@@ -88,6 +93,7 @@ public class TypeResultsLoader extends AsyncTaskLoader<List<ResultsPlace>> {
                             JSONObject obj2 = jsonArray2.getJSONObject(j);
                             place.setPhoto_reference(obj2.getString("photo_reference"));
                         }
+                        place.setDistance(calculateDistance(obj));
                         dataList.add(place);
                     }
                 }
@@ -120,5 +126,23 @@ public class TypeResultsLoader extends AsyncTaskLoader<List<ResultsPlace>> {
         } catch (Exception e) {
         }
         return Text;
+    }
+
+    private String calculateDistance(JSONObject obj) {
+        float[] results = new float[1];
+        float c = 1;
+        if (app.getDistanceType().equals("km")) {
+            c = 1000;
+        }
+        try {
+            Location.distanceBetween(Double.parseDouble(app.getLocatinLatitude()),
+                    Double.parseDouble(app.getLocatinLongitude()),
+                    Double.parseDouble(obj.getJSONObject("geometry").getJSONObject("location").getString("lat")),
+                    Double.parseDouble(obj.getJSONObject("geometry").getJSONObject("location").getString("lng")), results);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return String.valueOf(results[0] / c);
+
     }
 }

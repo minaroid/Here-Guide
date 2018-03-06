@@ -149,19 +149,11 @@ public class HomeActivity extends BaseActivity implements HomeMvpView,
             case 0:
                 tag = fragments[index];
                 selectedFragment = fragmentManager.findFragmentByTag(tag);
-                if (app.isNewFavoritesAdded()) {
-                    transaction.replace(R.id.container, selectedFragment, tag)
-                            .detach(selectedFragment).attach(selectedFragment)
-                            .commit();
-                    app.setNewFavoritesAdded(false);
-                } else {
-
-                    if (selectedFragment == null) {
-                        selectedFragment = new FavoritesFragment();
-                        transaction.addToBackStack(tag);
-                    }
-                    transaction.replace(R.id.container, selectedFragment, tag).commit();
+                if (selectedFragment == null) {
+                    selectedFragment = new FavoritesFragment();
+                    transaction.addToBackStack(tag);
                 }
+                transaction.replace(R.id.container, selectedFragment, tag).commit();
                 break;
 
             case 1:
@@ -254,6 +246,8 @@ public class HomeActivity extends BaseActivity implements HomeMvpView,
             ResultsActivityintent.putExtra("type", type);
             ResultsActivityintent.putExtra("lat", currentLocation.getLocatinLatitude());
             ResultsActivityintent.putExtra("lon", currentLocation.getLocatinLongitude());
+            app.setLocatinLatitude(currentLocation.getLocatinLatitude());
+            app.setLocatinLongitude(currentLocation.getLocatinLongitude());
             startActivity(ResultsActivityintent);
         } else {
             Toast.makeText(this, R.string.msg_offline, Toast.LENGTH_SHORT).show();
@@ -282,6 +276,7 @@ public class HomeActivity extends BaseActivity implements HomeMvpView,
         if (s.equals(getString(R.string.list_key))) {
             isHomePreferenceChaged = true;
         }
+
         Toast.makeText(this, getString(R.string.msg_changes), Toast.LENGTH_SHORT).show();
     }
 

@@ -62,6 +62,7 @@ public class placeActivity extends BaseActivity implements placeMvpView {
     private Intent i;
     private boolean isInFavoriteList = false;
     private Snackbar snackbar;
+    private String disType;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,7 +76,6 @@ public class placeActivity extends BaseActivity implements placeMvpView {
         getSupportActionBar().setTitle("");
         placeName.setText(i.getStringExtra("name"));
         placeRate.setRating(Float.parseFloat(i.getStringExtra("rate")));
-        placeDistance.setText(i.getStringExtra("dis"));
         Bundle mBundle = new Bundle();
         String lang = Locale.getDefault().getLanguage();
 
@@ -92,6 +92,15 @@ public class placeActivity extends BaseActivity implements placeMvpView {
         if (presenter.checkFavoritesList(i.getStringExtra("id"))) {
             isInFavoriteList = true;
         }
+        app = ((HereApp) getApplicationContext());
+        app.DistanceType();
+        String arr[] = getResources().getStringArray(R.array.dist_titles);
+        if (app.getDistanceType().equals("km")) {
+            disType = arr[0];
+        } else {
+            disType = arr[1];
+        }
+        placeDistance.setText(i.getStringExtra("dis")+" "+disType);
     }
 
     public LoaderManager.LoaderCallbacks<List<PlaceInfo>> mListLoaderCallbacks =

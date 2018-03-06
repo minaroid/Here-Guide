@@ -29,6 +29,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
     private Context mContext;
 
     public FavoritesAdapter(Context context) {
+
         this.mContext = context;
     }
 
@@ -53,6 +54,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
             holder.placeTitle.setText(myCursor.getString(myCursor.getColumnIndexOrThrow(FavContract.FavListEntry.COL_PLACE_NAME)));
             holder.placeRate.setRating(Float.parseFloat(myCursor.getString(myCursor.getColumnIndexOrThrow(FavContract.FavListEntry.COL_PLACE_RATE))));
             holder.placeDistance.setText("5 Km");
+            holder.v.setTag(myCursor.getString(myCursor.getColumnIndexOrThrow(FavContract.FavListEntry.COL_PLACE_ID)));
         }
     }
 
@@ -86,7 +88,6 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.v = itemView;
-
         }
     }
 

@@ -14,7 +14,7 @@ public class ResultsPlace {
     private String photo_reference = "";
     private String open;
     private String price="";
-    private double distance;
+    private String distance;
 
     public String getLat() {
         return lat;
@@ -89,11 +89,11 @@ public class ResultsPlace {
         this.price = price;
     }
 
-    public double getDistance() {
+    public String getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(String distance) {
         this.distance = distance;
     }
 }

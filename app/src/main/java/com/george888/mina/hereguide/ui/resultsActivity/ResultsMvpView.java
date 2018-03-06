@@ -8,6 +8,6 @@ import com.george888.mina.hereguide.ui.base.MvpView;
 
 public interface ResultsMvpView extends MvpView {
 
-    void openPlaceActivity(String id,String name,String rate,double dis,String photoReference);
+    void openPlaceActivity(String id,String name,String rate,String dis,String photoReference);
 
 }
