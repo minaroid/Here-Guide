@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class FavHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "favList.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     public FavHelper(Context context) {
 
@@ -25,7 +25,9 @@ public class FavHelper extends SQLiteOpenHelper {
                 FavContract.FavListEntry.COL_PLACE_NAME + " TEXT NOT NULL, " +
                 FavContract.FavListEntry.COL_PLACE_PHOTO + " TEXT NOT NULL, " +
                 FavContract.FavListEntry.COL_PLACE_ID + " TEXT NOT NULL, " +
-                FavContract.FavListEntry.COL_PLACE_RATE + " TEXT NOT NULL " +
+                FavContract.FavListEntry.COL_PLACE_RATE + " TEXT NOT NULL, " +
+                FavContract.FavListEntry.COL_PLACE_LAT + " TEXT NOT NULL, " +
+                FavContract.FavListEntry.COL_PLACE_LNG + " TEXT NOT NULL " +
                 ");";
         sqLiteDatabase.execSQL(SQL_CREATE_TABLE);
     }

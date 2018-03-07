@@ -235,4 +235,6 @@
     <string name="msg_fav_undo">Undo</string>
     <string name="pref_dis_title">Distance type</string>
     <string name="pref_dis_key">dis_list_key</string>
+    <string name="place_cursor_pos">456456546</string>
+    <string name="place_dis_tag">346565645</string>
 </resources>

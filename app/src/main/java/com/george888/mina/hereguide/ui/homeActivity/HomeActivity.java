@@ -27,6 +27,7 @@ import com.george888.mina.hereguide.R;
 import com.george888.mina.hereguide.ui.base.BaseActivity;
 import com.george888.mina.hereguide.ui.favoritesFragment.FavoritesFragment;
 import com.george888.mina.hereguide.ui.homeFragment.HomeFragment;
+import com.george888.mina.hereguide.ui.placeActivity.placeActivity;
 import com.george888.mina.hereguide.ui.resultsActivity.ResultsActivity;
 import com.george888.mina.hereguide.ui.settingsFragment.SettingsFragment;
 import com.george888.mina.hereguide.utils.CurrentLocation;
@@ -253,6 +254,21 @@ public class HomeActivity extends BaseActivity implements HomeMvpView,
             Toast.makeText(this, R.string.msg_offline, Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    @Override
+    public void openPlaceActivity(String id, String name, String rate,String dis) {
+        if(app.isConnected())
+        {
+            Intent i = new Intent(this,placeActivity.class);
+            i.putExtra("id",id);
+            i.putExtra("name",name);
+            i.putExtra("rate",rate);
+            i.putExtra("dis",dis);
+            startActivity(i);
+        }else{
+            Toast.makeText(this,R.string.msg_offline,Toast.LENGTH_SHORT).show();
+        }
     }
 
 

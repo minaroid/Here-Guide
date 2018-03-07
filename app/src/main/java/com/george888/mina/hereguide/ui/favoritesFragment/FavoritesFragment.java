@@ -1,6 +1,7 @@
 package com.george888.mina.hereguide.ui.favoritesFragment;
 
 
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.CursorLoader;
 import android.database.Cursor;
@@ -26,6 +27,7 @@ import com.george888.mina.hereguide.R;
 import com.george888.mina.hereguide.adapters.FavoritesAdapter;
 import com.george888.mina.hereguide.data.sql.FavContract;
 import com.george888.mina.hereguide.ui.base.BaseFragment;
+import com.george888.mina.hereguide.ui.placeActivity.placeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -106,7 +108,8 @@ public class FavoritesFragment extends BaseFragment implements FavoritesFragment
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         progressBar.setVisibility(View.VISIBLE);
         String[] projection = {FavContract.FavListEntry.COL_PLACE_ID, FavContract.FavListEntry.COL_PLACE_NAME,
-                FavContract.FavListEntry.COL_PLACE_RATE, FavContract.FavListEntry.COL_PLACE_PHOTO};
+                FavContract.FavListEntry.COL_PLACE_RATE, FavContract.FavListEntry.COL_PLACE_PHOTO,
+                FavContract.FavListEntry.COL_PLACE_LNG, FavContract.FavListEntry.COL_PLACE_LAT};
         System.out.println(new CursorLoader(getActivity(), FavContract.FavListEntry.CONTENT_URI, projection, null, null, null));
         return new CursorLoader(getActivity(), FavContract.FavListEntry.CONTENT_URI, projection, null, null, null);
     }
@@ -123,10 +126,6 @@ public class FavoritesFragment extends BaseFragment implements FavoritesFragment
 
     }
 
-    @Override
-    public void restartLoader() {
-
-    }
 
     private void touchHelper() {
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
@@ -145,4 +144,6 @@ public class FavoritesFragment extends BaseFragment implements FavoritesFragment
             }
         }).attachToRecyclerView(recyclerView);
     }
+
+
 }

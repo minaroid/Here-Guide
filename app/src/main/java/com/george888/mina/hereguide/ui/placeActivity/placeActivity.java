@@ -171,6 +171,9 @@ public class placeActivity extends BaseActivity implements placeMvpView {
         values.put(FavContract.FavListEntry.COL_PLACE_NAME, i.getStringExtra("name"));
         values.put(FavContract.FavListEntry.COL_PLACE_RATE, i.getStringExtra("rate"));
         values.put(FavContract.FavListEntry.COL_PLACE_PHOTO, i.getStringExtra("ref"));
+        values.put(FavContract.FavListEntry.COL_PLACE_LAT, i.getStringExtra("lat"));
+        values.put(FavContract.FavListEntry.COL_PLACE_LNG, i.getStringExtra("lng"));
+
         if (presenter.addToFavoritesList(values)) {
             item.setIcon(getResources().getDrawable(R.drawable.heart));
             Snackbar.make(view, R.string.msg_fav_added, Snackbar.LENGTH_SHORT).show();

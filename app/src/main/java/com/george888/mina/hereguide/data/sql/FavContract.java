@@ -26,5 +26,7 @@ public class FavContract {
         public static final String COL_PLACE_ID = "placeID";
         public static final String COL_PLACE_PHOTO = "placePhoto";
         public static final String COL_PLACE_RATE = "placeRate";
+        public static final String COL_PLACE_LAT = "lat";
+        public static final String COL_PLACE_LNG = "ln";
     }
 }

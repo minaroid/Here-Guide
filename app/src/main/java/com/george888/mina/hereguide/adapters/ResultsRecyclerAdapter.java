@@ -29,7 +29,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by minageorge on 1/29/18.
  */
 
-public class ResultsRecyclerAdapter extends RecyclerView.Adapter<ResultsRecyclerAdapter.VH> implements View.OnClickListener {
+public class ResultsRecyclerAdapter extends
+        RecyclerView.Adapter<ResultsRecyclerAdapter.VH> implements View.OnClickListener {
 
     private ArrayList<ResultsPlace> mArrayList = new ArrayList<ResultsPlace>();
     private GridLayoutManager gridLayoutManager = null;
@@ -43,9 +44,11 @@ public class ResultsRecyclerAdapter extends RecyclerView.Adapter<ResultsRecycler
         this.gridLayoutManager = gridLayoutManager;
         this.mContext = context;
         this.resultsMvpView = (ResultsMvpView) context;
+
         app = ((HereApp) context.getApplicationContext());
         app.DistanceType();
         String arr[] = context.getResources().getStringArray(R.array.dist_titles);
+
         if (app.getDistanceType().equals("km")) {
             disType = arr[0];
         } else {
@@ -97,7 +100,8 @@ public class ResultsRecyclerAdapter extends RecyclerView.Adapter<ResultsRecycler
     public void onClick(View view) {
         int pos = (int) view.getTag();
         resultsMvpView.openPlaceActivity(mArrayList.get(pos).getId(), mArrayList.get(pos).getName(),
-                mArrayList.get(pos).getRate(), mArrayList.get(pos).getDistance(), mArrayList.get(pos).getPhoto_reference());
+                mArrayList.get(pos).getRate(), mArrayList.get(pos).getDistance(), mArrayList.get(pos).getPhoto_reference(),
+                mArrayList.get(pos).getLat(),mArrayList.get(pos).getLng());
     }
 
 

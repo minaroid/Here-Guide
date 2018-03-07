@@ -10,5 +10,6 @@ public interface HomeMvpView extends MvpView {
 
     void openResultsActivity(String title,String type);
 
+    void openPlaceActivity(String id , String name ,String rate,String dis);
 
 }
