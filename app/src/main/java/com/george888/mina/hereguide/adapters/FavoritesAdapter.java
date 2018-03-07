@@ -4,11 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.location.Location;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CursorAdapter;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -16,12 +14,7 @@ import com.bumptech.glide.Glide;
 import com.george888.mina.hereguide.HereApp;
 import com.george888.mina.hereguide.R;
 import com.george888.mina.hereguide.data.sql.FavContract;
-import com.george888.mina.hereguide.ui.favoritesFragment.FavoritesFragment;
-import com.george888.mina.hereguide.ui.favoritesFragment.FavoritesFragmentMvpView;
 import com.george888.mina.hereguide.ui.homeActivity.HomeMvpView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,6 +66,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
             holder.v.setTag(Integer.parseInt(mContext.getString(R.string.place_cursor_pos)), position);
             holder.v.setTag(Integer.parseInt(mContext.getString(R.string.place_dis_tag)), dist);
             holder.v.setOnClickListener(this);
+
         }
     }
 
